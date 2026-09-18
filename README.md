@@ -13,6 +13,8 @@ La entrevista propone opciones razonadas, hace preguntas de una en una y disting
 
 ## Instalación
 
+¿Empiezas con un equipo sin preparar? Sigue la **[guía completa para Windows, macOS y Ubuntu](GUIA-INSTALACION.md)**: software, SDK/JDK, emulador, Codex, acceso al repositorio privado, instalación de la skill, primera compilación y solución de errores.
+
 Repositorio: [luisroga75/android-kotlin-sdd](https://github.com/luisroga75/android-kotlin-sdd). Es privado: necesitas una cuenta con acceso. Con GitHub CLI autenticado puedes descargarlo mediante:
 
 ```sh
@@ -30,7 +32,7 @@ Ejemplo si estás en el directorio que contiene la carpeta descargada y tu Codex
 ```sh
 mkdir -p ~/.agents/skills
 mkdir -p ~/.agents/skills/android-kotlin-sdd
-cp -R ./android-kotlin-sdd/SKILL.md ./android-kotlin-sdd/README.md ./android-kotlin-sdd/agents ./android-kotlin-sdd/assets ./android-kotlin-sdd/references ./android-kotlin-sdd/scripts ~/.agents/skills/android-kotlin-sdd/
+cp -R ./android-kotlin-sdd/SKILL.md ./android-kotlin-sdd/README.md ./android-kotlin-sdd/GUIA-INSTALACION.md ./android-kotlin-sdd/agents ./android-kotlin-sdd/assets ./android-kotlin-sdd/references ./android-kotlin-sdd/scripts ~/.agents/skills/android-kotlin-sdd/
 ```
 
 Si ya existe una instalación, revisa las diferencias antes de sustituirla. No copies únicamente `SKILL.md`: sus referencias y plantillas son parte del funcionamiento.
@@ -175,6 +177,7 @@ Las pruebas utilizan carpetas temporales y no modifican la app del usuario.
 | Ubicación | Contenido |
 | --- | --- |
 | [SKILL.md](SKILL.md) | Entrada, reglas y selección de fases. |
+| [GUIA-INSTALACION.md](GUIA-INSTALACION.md) | Instalación completa en Windows, macOS y Ubuntu. |
 | [agents/openai.yaml](agents/openai.yaml) | Nombre visible y prompt inicial de Codex. |
 | [references/entrevista.md](references/entrevista.md) | Preguntas progresivas e inferencias responsables. |
 | [references/prompts-base.md](references/prompts-base.md) | Contexto, constitución, AGENTS y varias specs. |

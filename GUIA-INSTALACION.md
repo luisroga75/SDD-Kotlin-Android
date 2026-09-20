@@ -1,6 +1,6 @@
 # Instalación completa: Windows, macOS y Ubuntu
 
-Guía para preparar un equipo desde cero y utilizar **android-kotlin-sdd con Codex**, hasta compilar y ejecutar una primera app Android/Kotlin. Revisión documental: **18 de septiembre de 2026**.
+Guía para preparar un equipo desde cero y utilizar **android-kotlin-sdd con Codex o Claude Code**, hasta compilar y ejecutar una primera app Android/Kotlin. Revisión de Android: **18 de septiembre de 2026**; variantes de agentes: **20 de septiembre de 2026**.
 
 Los comandos son instrucciones para tu equipo, no un instalador automático. Se han contrastado con documentación oficial; no se ha ejecutado una instalación limpia en los tres sistemas. Las versiones y los nombres de los menús pueden cambiar.
 
@@ -11,7 +11,7 @@ Los comandos son instrucciones para tu equipo, no un instalador automático. Se 
 3. [macOS](#3-macos-terminal-zsh)
 4. [Ubuntu](#4-ubuntu-terminal-bash)
 5. [SDK y JDK](#5-configurar-el-sdk-y-el-jdk-común)
-6. [Codex](#6-instalar-y-abrir-codex)
+6. [Codex o Claude Code](#6-instalar-y-abrir-codex-o-claude-code)
 7. [GitHub e instalación de la skill](#7-github-e-instalación-de-la-skill)
 8. [Primera app y comprobación](#8-crear-o-abrir-la-app-y-comprobar-el-entorno)
 9. [Primer ciclo SDD](#9-empezar-el-ciclo-sdd)
@@ -20,18 +20,18 @@ Los comandos son instrucciones para tu equipo, no un instalador automático. Se 
 
 ## 1. Qué necesitas y qué no
 
-Ruta de esta guía: **Android Studio + VS Code con la extensión oficial de Codex**, todo local y en el mismo sistema operativo. Android Studio administra Android y permite depurar y previsualizar Compose; VS Code es el espacio de trabajo con Codex. También puedes abrir la misma app desde una aplicación de escritorio compatible con Codex ya instalada.
+Ruta de esta guía: **Android Studio + VS Code y tu agente elegido**, todo local y en el mismo sistema operativo. Android Studio administra Android y permite depurar y previsualizar Compose; VS Code es el espacio de trabajo con la extensión de Codex o una terminal de Claude Code. También puedes abrir la misma app desde Codex de escritorio ya instalado. No necesitas los dos agentes.
 
 | Componente | Para qué sirve | Necesidad |
 | --- | --- | --- |
-| VS Code + Codex | Conversación con el agente, archivos y skill | Ruta elegida aquí |
-| Cuenta con acceso a Codex | Autenticación y uso del servicio | Obligatoria para esta ruta |
+| VS Code y Codex o Claude Code | Conversación con el agente, archivos y skill | Elige un agente |
+| Cuenta con acceso al agente elegido | Autenticación y uso del servicio | Obligatoria para esta ruta |
 | Git y GitHub CLI (`gh`) | Versionado y acceso al repositorio privado | Para descargar por esta ruta y trabajar con GitHub |
 | Android Studio | Gestionar SDK, proyecto y dispositivos | Ruta recomendada para preparar Android |
 | JDK compatible | Ejecutar Gradle y compilar | Para construir la app |
 | SDK, Platform-Tools, Build-Tools | Compilación e instalación Android | Para construir/probar |
 | Emulador o teléfono Android | Ejecutar la app | Al menos uno para probarla |
-| Python 3.9+ | Auditor documental incluido | Opcional; no es el lenguaje de la app |
+| Python 3.9+ | Instalador de la skill y auditor documental | Opcional si copias la skill manualmente; no es el lenguaje de la app |
 
 No necesitas instalar Kotlin o Gradle globalmente: el proyecto gestiona sus componentes y usa **Gradle Wrapper**. Tampoco necesitas Node.js, Docker, Firebase, una cuenta de Google Play ni un paquete de extensiones Java para seguir esta ruta. Una extensión de Kotlin en VS Code es una ayuda de edición opcional, no sustituye Android Studio ni determina si la app compila.
 
@@ -249,7 +249,9 @@ Si tienes el `sdkmanager` tradicional, consulta `sdkmanager --help`; `sdkmanager
 
 Si decides crear proyectos por CLI, lista primero las plantillas con la opción que muestre su ayuda. No des por disponible `empty-activity-agp-9`, ni inventes una opción `--profile`. La creación gráfica del apartado 8 evita esos errores.
 
-## 6. Instalar y abrir Codex
+## 6. Instalar y abrir Codex o Claude Code
+
+### Codex
 
 1. Abre VS Code y su panel **Extensiones**.
 2. Desde el enlace **Instala la extensión** de la [página oficial de Codex para IDE](https://developers.openai.com/es-419/docs/codex/ide), instala la extensión publicada por OpenAI. No elijas una extensión de nombre parecido de otro autor.
@@ -260,6 +262,10 @@ Si decides crear proyectos por CLI, lista primero las plantillas con la opción 
 **Alternativa de terminal:** si prefieres Codex CLI, sigue el instalador vigente para tu sistema en la [guía oficial de Codex CLI](https://developers.openai.com/es-419/docs/codex/cli), abre la raíz de tu app y ejecuta `codex`. No necesitas instalar la CLI además de la extensión para completar esta guía.
 
 Una extensión instalada no significa que la sesión esté iniciada: comprueba que Codex puede responder a una petición de solo lectura, como «Explica qué archivos hay en esta carpeta sin modificarlos».
+
+### Claude Code
+
+Si eliges Claude Code, sigue [la instalación por sistema operativo](DOS-AGENTES.md#1-instalar-el-agente-elegido): Windows con WinGet, macOS con Homebrew o instalador nativo y Ubuntu con instalador nativo. Incluye autenticación y comprobación del comando. El resto del entorno Android de esta guía es el mismo. No es necesario instalar Codex además.
 
 ## 7. GitHub e instalación de la skill
 
@@ -285,45 +291,24 @@ git config --global user.email "TU CORREO O DIRECCION NOREPLY DE GITHUB"
 
 Son valores de ejemplo que debes sustituir. El correo forma parte de los commits; usa tu dirección noreply si quieres mantenerlo privado. No cambies una identidad existente sin decidirlo.
 
-### 7.2 Instalación personal — una sola copia
+### 7.2 Instalación personal — una sola copia por agente
 
-Codex documenta `~/.agents/skills` para skills personales. Si tu instalación ya usa `~/.codex/skills/android-kotlin-sdd`, **no crees una segunda copia**: identifica primero cuál descubre y conserva una sola instalación. La skill no se mezcla automáticamente con otra del mismo nombre. [Ubicaciones oficiales](https://developers.openai.com/es-419/docs/build-skills).
+Clona en una carpeta de trabajo como `Proyectos`, **no dentro de un directorio de skills**:
 
-En una instalación nueva, puedes clonar directamente en la ubicación personal; así mantienes documentación y futuras actualizaciones juntas.
-
-**Windows, PowerShell:**
-
-```powershell
-New-Item -ItemType Directory -Force "$HOME\.agents\skills" | Out-Null
-Test-Path "$HOME\.agents\skills\android-kotlin-sdd"
+```text
+gh repo clone luisroga75/android-kotlin-sdd
+cd android-kotlin-sdd
 ```
 
-Si devuelve `False`, continúa:
+En Windows, ejecuta `python scripts/install_skill.py --agent codex` o `python scripts/install_skill.py --agent claude-code`, según el agente elegido. Si tu Python se llama `py`, sustituye el comando.
 
-```powershell
-gh repo clone luisroga75/android-kotlin-sdd "$HOME\.agents\skills\android-kotlin-sdd"
-Test-Path "$HOME\.agents\skills\android-kotlin-sdd\SKILL.md"
-```
+En macOS/Ubuntu, usa `python3 scripts/install_skill.py --agent codex` o `python3 scripts/install_skill.py --agent claude-code`. Puedes añadir `--dry-run` antes para consultar el destino sin escribir.
 
-**macOS / Ubuntu, zsh o Bash:**
+Codex se instala en `~/.agents/skills/android-kotlin-sdd`; Claude Code en `~/.claude/skills/android-kotlin-sdd`. Si ya utilizas `~/.codex/skills/android-kotlin-sdd`, conserva una sola copia de Codex. El instalador no sobrescribe instalaciones.
 
-```sh
-mkdir -p "$HOME/.agents/skills"
-ls -ld "$HOME/.agents/skills/android-kotlin-sdd"
-```
+Para instalar sin Python, actualizar una instalación antigua o instalar por proyecto, sigue [la guía de los dos agentes](DOS-AGENTES.md). Si la instalación anterior era un clon entero, muévelo fuera del directorio de skills antes de actualizarlo: ahora el repositorio incluye varias entradas.
 
-Si la carpeta no existe, continúa; el error de `ls` es esperable en esa primera instalación:
-
-```sh
-gh repo clone luisroga75/android-kotlin-sdd "$HOME/.agents/skills/android-kotlin-sdd"
-test -f "$HOME/.agents/skills/android-kotlin-sdd/SKILL.md"
-```
-
-Si ya existe la carpeta en cualquiera de los sistemas, no la borres ni clones encima: revisa su origen y los cambios locales; consulta el mantenimiento al final.
-
-Abre una sesión nueva de Codex en la carpeta de tu **app**, no en la carpeta de la skill, y menciona `$android-kotlin-sdd`. Pide que confirme que puede leer `SKILL.md` y sus referencias. El texto se escribe en el chat, no en la terminal.
-
-Para compartir la skill con un equipo, otra opción es instalarla dentro de `.agents/skills/android-kotlin-sdd` del proyecto. No añadas sin querer un repositorio Git anidado ni redistribuyas el contenido privado a una app pública. La instalación personal anterior evita ese problema.
+Abre una sesión nueva en la carpeta de tu **app**, no en la carpeta de la skill. Invoca `$android-kotlin-sdd` en Codex o `/android-kotlin-sdd` en Claude Code y pide confirmar que puede leer las referencias. No redistribuyas el contenido privado a una app pública sin autorización.
 
 ## 8. Crear o abrir la app y comprobar el entorno
 
@@ -400,7 +385,7 @@ Si tu instalación proporciona `py` en lugar de `python`, usa `py` con los mismo
 python3 -B "$HOME/.agents/skills/android-kotlin-sdd/scripts/test_audit_sdd.py"
 ```
 
-Se esperan nueve pruebas correctas. Una vez redactados los documentos de tu app, desde la raíz de **esa app**, ejecuta:
+Se esperan doce pruebas correctas. Para Claude Code, cambia `.agents` por `.claude` en las rutas. Una vez redactados los documentos de tu app, desde la raíz de **esa app**, ejecuta:
 
 ```powershell
 python "$HOME\.agents\skills\android-kotlin-sdd\scripts\audit_sdd.py" . --ready
@@ -412,11 +397,11 @@ O en macOS/Ubuntu:
 python3 "$HOME/.agents/skills/android-kotlin-sdd/scripts/audit_sdd.py" . --ready
 ```
 
-Es normal que una app sin documentos SDD aún no pase el auditor. `--ready` valida estructura documental, no compila ni prueba Android. No hay que instalar dependencias Python con pip.
+Para Claude añade `--agent claude`; para una app compartida usa `--agent both`. Es normal que una app sin documentos SDD aún no pase el auditor. `--ready` valida estructura documental, no compila ni prueba Android. No hay que instalar dependencias Python con pip.
 
 ## 9. Empezar el ciclo SDD
 
-Pega esto en el **chat de Codex** abierto en la raíz de tu app:
+Pega esto en el **chat de Codex** abierto en la raíz de tu app. En Claude Code, sustituye el inicio por `/android-kotlin-sdd` y pide conservar o crear CLAUDE.md con sus imports:
 
 ```text
 Usa $android-kotlin-sdd para acompañarme desde el estado actual de esta app.
@@ -437,7 +422,7 @@ Más adelante autoriza explícitamente la implementación y, por separado cuando
 
 Lista final de comprobación:
 
-- [ ] Codex inicia sesión y descubre `$android-kotlin-sdd`.
+- [ ] El agente inicia sesión y descubre `$android-kotlin-sdd` (Codex) o `/android-kotlin-sdd` (Claude Code).
 - [ ] GitHub CLI accede al repositorio privado con la cuenta correcta.
 - [ ] Studio y el Wrapper usan JVMs compatibles con el proyecto.
 - [ ] `adb` y el SDK apuntan a la instalación elegida.
@@ -468,11 +453,13 @@ En Fish, utiliza su propia configuración (`~/.config/fish/config.fish`), `set -
 
 ## 11. Mantenimiento y fuentes
 
-Para una skill instalada como clon, desde su carpeta ejecuta `git status` y revisa `git remote -v`. Si no hay cambios locales y el origen es el esperado, actualiza con `git pull --ff-only` y abre una sesión nueva de Codex. Si hay cambios, revísalos antes: no uses reset forzado ni borres la instalación. Una instalación hecha por copia manual no se actualiza con `git pull`.
+Actualiza el clon de trabajo fuera del directorio de skills tras revisar `git status` y `git remote -v`; si está limpio y el origen es el esperado, usa `git pull --ff-only`. Después compara y actualiza la copia instalada, con respaldo. Sigue [la migración de instalaciones antiguas](DOS-AGENTES.md#6-actualizar-sin-perder-personalizaciones); no uses reset forzado ni borres personalizaciones. Una instalación hecha por copia no se actualiza con `git pull`.
 
 Actualiza Studio/SDK desde sus gestores y conserva las versiones declaradas por cada proyecto. No instales automáticamente «lo último de todo» en una app existente. Esta guía no configura firma de publicación ni despliegue en Google Play.
 
 Fuentes oficiales adicionales para comprobar cambios:
+
+- [Claude Code: instalación](https://code.claude.com/docs/en/quickstart), [skills](https://code.claude.com/docs/en/skills) e [imports](https://code.claude.com/docs/en/memory).
 
 - [Codex: extensión para IDE](https://developers.openai.com/es-419/docs/codex/ide), [CLI](https://developers.openai.com/es-419/docs/codex/cli) y [skills](https://developers.openai.com/es-419/docs/build-skills).
 - [Android Studio y requisitos](https://developer.android.com/studio/install), [JDK](https://developer.android.com/build/jdks), [variables](https://developer.android.com/tools/variables) y [aceleración](https://developer.android.com/studio/run/emulator-acceleration).

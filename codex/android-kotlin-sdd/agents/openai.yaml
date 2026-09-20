@@ -1,0 +1,6 @@
+interface:
+  display_name: "SDD Android · Kotlin"
+  short_description: "SDD Android completo, con preguntas, pruebas y GitHub"
+  default_prompt: "Usa $android-kotlin-sdd para guiarme paso a paso, preguntarme lo necesario y preparar el SDD de mi app Android con Kotlin."
+policy:
+  allow_implicit_invocation: true

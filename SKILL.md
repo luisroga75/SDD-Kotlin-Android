@@ -50,6 +50,16 @@ Usa preguntas asíncronas cuando estén disponibles y avanza en apartados indepe
 
 La constitución y la spec se revisan con el usuario sobre documentos concretos. No impongas aprobaciones repetidas para continuar un alcance ya encargado. Si pide revisión fase a fase, respétala. Si delega decisiones, registra qué se ha asumido y por qué; no extiendas esa delegación a acciones externas ajenas al encargo.
 
+## Revisión humana y planificación
+
+Aplica spec-first con continuidad spec-anchored: specs, planes, tareas, código y pruebas permanecen coherentes. No es spec-as-source ni permiso para regenerar toda la app sin revisión. El usuario debe poder revisar documentos, diseño, código y tests; la salida del agente no certifica por sí sola la intención.
+
+En el modo docente presenta cada fase para revisión antes de avanzar, incluidos plan y tareas. Respeta un encargo explícito de varias fases sin repetir autorizaciones. AGENTS y constitución se preparan al comienzo en el orden útil para el proyecto y no se recrean para cada funcionalidad.
+
+Recomienda el modo de planificación del agente para estudiar propuestas cuando esté disponible; no afirmes haberlo activado ni lo confundas con el documento `plan.md`. Si ese modo impide escribir, presenta el borrador y solicita el cambio de modo para guardar lo acordado, sin sortear restricciones. En modo normal, redactar documentación autorizada no implica implementar la app.
+
+Si código y documentos divergen, distingue un bug frente a un contrato acordado de una decisión nueva: no cambies el requisito para justificar un fallo. Registra corrección, regresión e impacto en la spec correspondiente.
+
 ## Fases y recursos
 
 Lee íntegramente la referencia de la fase actual y sus plantillas necesarias. Los prompts se ejecutan adaptados al contexto; no los vuelques completos en cada respuesta. Si el usuario pide un prompt, entrégalo con sus rutas y decisiones resueltas.

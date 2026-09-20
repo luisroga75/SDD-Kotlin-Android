@@ -193,6 +193,6 @@ Las pruebas utilizan carpetas temporales y no modifican la app del usuario.
 
 Adaptación del método publicado en [Hello SDD, de MoureDev](https://github.com/mouredev/hello-sdd), originalmente aplicado a una CLI Python. Se consultaron su skill, los prompts, las plantillas, los artefactos del ejemplo y la pizarra del curso. El repositorio fuente declara Apache-2.0.
 
-No se obtuvo una transcripción completa verificable del vídeo; no se afirma que cada explicación oral haya sido contrastada. Android/Kotlin, Codex, GitHub, el comprobador y la reanudación son adaptaciones o ampliaciones para este flujo.
+El 20 de septiembre de 2026 se leyó la transcripción completa aportada por el usuario, basada en subtítulos automáticos. Se reforzaron la revisión humana por fases, la distinción entre modo de planificación y plan.md y la sincronización spec/código. No se afirma haber contrastado cada palabra con el audio ni se redistribuye la transcripción. Android/Kotlin, Codex, GitHub, el comprobador y la reanudación siguen siendo adaptaciones de este proyecto.
 
 Consulta [references/fuentes.md](references/fuentes.md) para la revisión exacta de las fuentes y sus enlaces.

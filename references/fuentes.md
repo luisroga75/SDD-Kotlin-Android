@@ -1,6 +1,6 @@
 # Procedencia y alcance de la adaptación
 
-Consulta de materiales: 18 de septiembre de 2026.
+Consulta inicial: 18 de septiembre de 2026. Ampliación con transcripción aportada por el usuario: 20 de septiembre de 2026.
 
 Fuente principal: [Hello SDD, de Brais Moure / MoureDev](https://github.com/mouredev/hello-sdd), revisión `358dfe85a818bccdd839f78e804668b3ebaa10b5`. El repositorio declara licencia Apache-2.0. Esta skill es una redacción propia que adapta su método, no una transcripción ni una copia del proyecto Python.
 
@@ -12,7 +12,9 @@ Materiales leídos:
 - `samples/AGENTS.md`, constitución y spec/plan/tasks del ejemplo `001-habits-mvp`.
 - [Pizarra del curso](https://github.com/mouredev/hello-sdd/blob/358dfe85a818bccdd839f78e804668b3ebaa10b5/samples/sdd.excalidraw), incluidos sus bloques y diagramas.
 
-Vídeo aportado: [El fin del Vibe Coding: Crea software robusto con este método](https://www.youtube.com/watch?v=5HaOxAAA5qI). Se accedió a la página, pero no se obtuvo una transcripción completa verificable. La fidelidad se contrasta con los materiales publicados junto al curso; no se afirma haber comprobado cada explicación oral o minuto del vídeo.
+Vídeo aportado: [El fin del Vibe Coding: Crea software robusto con este método](https://www.youtube.com/watch?v=5HaOxAAA5qI). Posteriormente el usuario proporcionó «Transcripción - El fin del Vibe Coding.md», leído completo, con marcas de 0:00 a 2:03:00. Se basa en subtítulos automáticos y advierte de posibles errores terminológicos: se contrasta con los archivos del curso, sin afirmar verificación palabra por palabra del audio. No se redistribuye la transcripción completa.
+
+La lectura reforzó spec-first/spec-anchored y revisión del código (28:01–32:01), orden flexible de AGENTS y constitución (1:04:00–1:08:01), modo de planificación (48:01 y 1:05:01–1:07:00), revisión de plan/tareas (1:26:00–1:36:00), sincronización y bugs (1:39:02–1:40:03) y revisión humana de documentos, código y tests (1:57:00–2:01:00). El modo del agente no equivale a plan.md ni permite saltarse sus restricciones de escritura.
 
 ## Correspondencia
 

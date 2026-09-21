@@ -1,6 +1,6 @@
 # SDD Android con Kotlin para Codex y Claude Code
 
-Dos versiones independientes de una skill en español para acompañar el desarrollo de una app Android desde una idea hasta especificaciones, diseño, tareas, implementación y validación. Incluye un flujo de control de versiones con Git y GitHub. Puedes utilizar solo Codex, solo Claude Code o ambos sobre los mismos documentos SDD.
+Dos versiones independientes de una skill en español para aplicar Spec-Driven Development en el desarrollo de una app Android desde una idea hasta especificaciones, diseño, tareas, implementación y validación. Incluye un flujo de control de versiones con Git y GitHub. Puedes utilizar solo Codex, solo Claude Code o ambos sobre los mismos documentos SDD.
 
 La entrevista propone opciones razonadas, hace preguntas de una en una y distingue decisiones confirmadas de supuestos. Puede utilizarse con una app nueva o con un proyecto ya existente.
 
